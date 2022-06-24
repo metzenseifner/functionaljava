@@ -1,12 +1,7 @@
-package functionaljava;
-
-import com.fpinjava.io.IO;
+package komar.lee.jonathan.functionaljava.functionaljava.monads;
 
 import java.io.Serializable;
 import java.util.concurrent.Callable;
-
-import static com.fpinjava.io.IO.unit;
-
 
 public abstract class Result<T> implements Serializable {
 
@@ -39,7 +34,7 @@ public abstract class Result<T> implements Serializable {
   public abstract Result<Nothing> mapEmpty();
   public abstract <U> Result<U> flatMap(Function<T, Result<U>> f);
   public abstract Boolean exists(Function<T, Boolean> f);
-  public abstract IO<Nothing> tryIO(Function<T, IO<Nothing>> success, Function<String, IO<Nothing>> failure);
+//  public abstract IO<Nothing> tryIO(Function<T, IO<Nothing>> success, Function<String, IO<Nothing>> failure);
 
   public Result<T> orElse(Supplier<Result<T>> defaultValue) {
     return map(x -> this).getOrElse(defaultValue);

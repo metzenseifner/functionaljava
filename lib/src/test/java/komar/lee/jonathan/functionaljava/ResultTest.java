@@ -1,8 +1,8 @@
-package functionaljava;
+package komar.lee.jonathan.functionaljava;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+import org.junit.jupiter.api.Test;
 
 public class ResultTest {
 
@@ -14,7 +14,7 @@ public class ResultTest {
   @Test
   public void testGetOrElseSuccess() {
     Result<Integer> result = Result.success(2);
-    assertEquals(Integer.valueOf(2), result.getOrElse(ResultTest::getDefault));
+    assertThat(Integer.valueOf(2), equalTo(result.getOrElse(ResultTest::getDefault)));
   }
 
   @Test(expected = IllegalStateException.class)
